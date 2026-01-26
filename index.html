@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emerald Joined | Prestige Home Maintenance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald-deep: #022c22;
+            --emerald-glow: #059669;
+            --gold: #d4af37;
+            --charcoal: #111827;
+            --off-white: #f3f4f6;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--charcoal);
+            color: var(--off-white);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(17, 24, 39, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo { font-size: 1.5rem; color: var(--gold); font-weight: 700; text-decoration: none; }
+
+        .nav-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        /* Hero Section */
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(2, 44, 34, 0.8), rgba(17, 24, 39, 0.9)), 
+                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=2000') center/cover;
+            padding: 0 10%;
+        }
+
+        header h1 { font-size: 4rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; color: #9ca3af; max-width: 600px; margin-bottom: 30px; }
+
+        .btn-main {
+            background-color: var(--gold);
+            color: var(--charcoal);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover { background-color: #f1c40f; transform: translateY(-3px); }
+
+        /* Booking Section */
+        #booking {
+            padding: 80px 10%;
+            background-color: var(--off-white);
+            color: var(--charcoal);
+        }
+
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-select {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .service-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 8px;
+        }
+
+        .service-card:hover, .service-card.active {
+            border-color: var(--emerald-glow);
+            background: rgba(5, 150, 105, 0.05);
+            color: var(--emerald-glow);
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .feature-item i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; display: block; }
+
+        footer {
+            padding: 40px 10%;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .booking-container, .features { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">EMERALD JOINED</a>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#about">The Saints</a>
+            <a href="#booking" class="btn-main" style="padding: 10px 20px;">Book Now</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Impeccable Care. <br>Interlocking Quality.</h1>
+        <p>Prestige home maintenance for those who value time and craftsmanship. From bespoke repairs to total sanctuary management.</p>
+        <a href="#booking" class="btn-main">Secure Your Appointment</a>
+    </header>
+
+    <section class="features">
+        <div class="feature-item">
+            <h3>Punctuality First</h3>
+            <p>We arrive within a 30-minute window. No waiting around. Your time is our most precious material.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Elite Multi-Trade</h3>
+            <p>Our experts aren't just handymen; they are master tradesmen "Joined" by a commitment to perfection.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Fully Insured</h3>
+            <p>Peace of mind comes standard with a £5m public liability cover and a 12-month craftsmanship guarantee.</p>
+        </div>
+    </section>
+
+    <section id="booking">
+        <h2 style="text-align: center; margin-bottom: 40px;">Instant Online Booking</h2>
+        <div class="booking-container">
+            <div>
+                <h3>1. Select Your Service</h3>
+                <div class="service-select">
+                    <div class="service-card active">
+                        <strong>Plumbing</strong><br><small>Taps, Leaks, Toilets</small>
+                    </div>
+                    <div class="service-card">
+                        <strong>Electrical</strong><br><small>Lights, Sockets, Faults</small>
+                    </div>
+                    <div class="service-card">
+                        <strong>Hanging</strong><br><small>Art, Mirrors, TV</small>
+                    </div>
+                    <div class="service-card">
+                        <strong>Assembly</strong><br><small>Fine Furniture</small>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>2. Your Details</h3>
+                <form>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Postcode (London & Suburbs)" required>
+                    <select>
+                        <option>Desired Time: Morning (8am - 12pm)</option>
+                        <option>Desired Time: Afternoon (12pm - 4pm)</option>
+                        <option>Emergency Service (Within 2 Hours)</option>
+                    </select>
+                    <textarea placeholder="Describe the job (e.g. Bespoke shelving repair)"></textarea>
+                    <button type="submit" class="btn-main" style="width: 100%; border: none; cursor: pointer;">Confirm Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Emerald Joined Ltd. | Stay Polished, Stay Wild. | Licensed & Insured</p>
+    </footer>
+
+</body>
+</html>
