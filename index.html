@@ -7,20 +7,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --emerald-dark: #064e3b;
-            --emerald-mid: #059669;
-            --emerald-light: #10b981;
+            /* Colors pulled from your EJ-logo.jpg */
+            --emerald-dark: #1b5e20; 
+            --emerald-light: #66bb6a;
             --gold: #c5a059;
-            --charcoal: #0f172a;
-            --off-white: #f8fafc;
-            --glass: rgba(255, 255, 255, 0.03);
+            --charcoal: #0a0f1a;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
             background-color: var(--charcoal);
-            color: var(--off-white);
+            color: var(--white);
             scroll-behavior: smooth;
         }
 
@@ -31,95 +31,101 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background: rgba(15, 23, 42, 0.95);
+            padding: 15px 8%;
+            background: rgba(10, 15, 26, 0.98);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+            border-bottom: 1px solid var(--emerald-dark);
         }
 
-        .logo-container { display: flex; align-items: center; gap: 12px; }
-        .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--emerald-dark), var(--emerald-light)); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
-        .logo-text { font-weight: 700; font-size: 1.4rem; letter-spacing: 1px; color: var(--off-white); }
+        .logo-box { display: flex; align-items: center; gap: 15px; }
+        .logo-box img { height: 50px; width: auto; }
+        .logo-box span { font-weight: 700; font-size: 1.2rem; letter-spacing: 1px; }
+
+        .nav-links a { color: white; text-decoration: none; margin-left: 25px; font-size: 0.9rem; font-weight: 600; }
+        .btn-nav { background: var(--emerald-light); color: var(--charcoal) !important; padding: 10px 20px; border-radius: 4px; }
 
         /* Hero */
         header {
-            height: 85vh;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
-                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070') center/cover;
+            background: linear-gradient(rgba(10, 15, 26, 0.8), rgba(10, 15, 26, 0.95)), 
+                        url('https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069') center/cover;
             padding: 0 10%;
         }
 
-        header h1 { font-size: 4rem; margin-bottom: 10px; color: var(--off-white); }
-        .emerald-span { color: var(--emerald-light); }
+        header h1 { font-size: 4rem; margin: 0; }
+        header p { color: #94a3b8; font-size: 1.2rem; max-width: 700px; margin: 20px 0 40px; }
 
-        /* Booking Section (Integrated from previous high-utility version) */
-        #booking {
-            padding: 100px 8%;
-            background: radial-gradient(circle at top right, #134e4a, var(--charcoal));
-        }
+        /* Pricing Section */
+        .pricing { padding: 100px 8%; text-align: center; background: #0d1421; }
+        .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .price-card { background: var(--glass); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .price-card:hover { border-color: var(--emerald-light); transform: translateY(-5px); }
+        .price-card h3 { color: var(--gold); margin-bottom: 10px; }
+        .amount { font-size: 3rem; font-weight: 700; margin-bottom: 10px; }
 
-        .booking-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
+        /* Booking Section */
+        #booking { padding: 100px 8%; background: var(--charcoal); }
+        .booking-container {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
+            grid-template-columns: 1fr 1fr;
+            background: white;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            color: #333;
         }
 
-        .booking-info { padding: 60px; background: rgba(6, 78, 59, 0.2); }
-        .booking-form { padding: 60px; background: white; color: var(--charcoal); }
+        .booking-visual {
+            background: linear-gradient(rgba(27, 94, 32, 0.9), rgba(27, 94, 32, 0.9)), 
+                        url('https://images.unsplash.com/photo-1595844730298-b960ff98fee0?q=80&w=2070');
+            background-size: cover;
+            padding: 60px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-        .service-pill-box { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
-        .pill { border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 50px; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
-        .pill:hover, .pill.active { background: var(--emerald-dark); color: white; border-color: var(--emerald-dark); }
-
+        .booking-form { padding: 60px; }
+        .form-group { margin-bottom: 15px; }
         input, select, textarea {
             width: 100%;
-            padding: 14px;
-            margin-bottom: 20px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-family: inherit;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
         }
 
         .btn-submit {
             background: var(--emerald-dark);
             color: white;
-            padding: 18px;
-            width: 100%;
             border: none;
-            border-radius: 8px;
-            font-weight: 600;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 6px;
             cursor: pointer;
             transition: 0.3s;
-            font-size: 1.1rem;
         }
-        .btn-submit:hover { background: var(--emerald-mid); transform: translateY(-2px); }
+        .btn-submit:hover { background: var(--emerald-light); color: var(--charcoal); }
 
-        /* Pricing */
-        .pricing { padding: 80px 8%; text-align: center; }
-        .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-        .price-item { background: var(--glass); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
-        .price-item.featured { border: 1px solid var(--emerald-light); position: relative; }
-        .featured-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--emerald-light); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+        /* Team Section */
+        .team { padding: 100px 8%; text-align: center; }
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
+        .team-card img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--emerald-light); margin-bottom: 20px; filter: grayscale(20%); }
 
-        /* Team */
-        .team { padding: 80px 8%; text-align: center; background: rgba(0,0,0,0.2); }
-        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
-        .member img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--emerald-mid); margin-bottom: 15px; filter: grayscale(30%); }
+        footer { padding: 50px; text-align: center; border-top: 1px solid #1e293b; color: #64748b; font-size: 0.9rem; }
 
         @media (max-width: 968px) {
-            .booking-card, .price-grid, .team-grid { grid-template-columns: 1fr; }
+            .booking-container, .price-grid, .team-grid { grid-template-columns: 1fr; }
             header h1 { font-size: 2.5rem; }
         }
     </style>
@@ -127,106 +133,107 @@
 <body>
 
     <nav>
-        <div class="logo-container">
-            <div class="logo-icon"></div>
-            <div class="logo-text">EMERALD JOINED</div>
+        <div class="logo-box">
+            <img src="EJ-logo.jpg" alt="Emerald Joined Logo">
+            <span>EMERALD JOINED</span>
         </div>
-        <div style="display: flex; gap: 30px; align-items: center;">
-            <a href="#pricing" style="text-decoration: none; color: white; font-size: 0.9rem;">Pricing</a>
-            <a href="#team" style="text-decoration: none; color: white; font-size: 0.9rem;">The Team</a>
-            <a href="#booking" style="text-decoration: none; background: var(--emerald-light); color: var(--charcoal); padding: 10px 20px; border-radius: 5px; font-weight: bold; font-size: 0.8rem;">BOOK NOW</a>
+        <div class="nav-links">
+            <a href="#pricing">Rates</a>
+            <a href="#team">Team</a>
+            <a href="#booking" class="btn-nav">BOOK NOW</a>
         </div>
     </nav>
 
     <header>
-        <h1>Care in Every <span class="emerald-span">Repair.</span></h1>
-        <p style="color: #94a3b8; font-size: 1.2rem; max-width: 700px;">London’s boutique handyman service. We join world-class expertise with friendly, quirk-driven service to maintain your home’s prestige.</p>
+        <h1>Care in Every Repair.</h1>
+        <p>Prestige home maintenance for London's most discerning residents. Impeccable craftsmanship meets quirky, friendly service.</p>
+        <a href="#booking" class="btn-submit" style="width: auto; padding: 15px 40px; text-decoration: none;">Secure Your Appointment</a>
     </header>
 
     <section id="pricing" class="pricing">
-        <h2>Transparent Rates</h2>
+        <h2>Our Transparent Rates</h2>
         <div class="price-grid">
-            <div class="price-item">
-                <h3 style="color: var(--gold);">The Quick Fix</h3>
-                <div style="font-size: 2.5rem; font-weight: 700;">£90</div>
-                <p style="color: #94a3b8;">First Hour (Min. Callout)</p>
-                <p style="margin-top: 20px; font-size: 0.9rem;">Perfect for hanging mirrors, fixing leaks, or minor electrical tweaks.</p>
+            <div class="price-card">
+                <h3>Short Order</h3>
+                <div class="amount">£90</div>
+                <p>Initial Hour (Min. Callout)</p>
             </div>
-            <div class="price-item featured">
-                <div class="featured-tag">MOST POPULAR</div>
-                <h3 style="color: var(--gold);">The Half Day</h3>
-                <div style="font-size: 2.5rem; font-weight: 700;">£320</div>
-                <p style="color: #94a3b8;">4 Hours of Dedicated Craft</p>
-                <p style="margin-top: 20px; font-size: 0.9rem;">Tackle your entire 'to-do' list in one sophisticated sweep.</p>
+            <div class="price-card" style="border: 1px solid var(--emerald-light);">
+                <h3>Half Day</h3>
+                <div class="amount">£320</div>
+                <p>4 Hours of Dedicated Craft</p>
             </div>
-            <div class="price-item">
-                <h3 style="color: var(--gold);">The Full Day</h3>
-                <div style="font-size: 2.5rem; font-weight: 700;">£580</div>
-                <p style="color: #94a3b8;">8 Hours of Mastery</p>
-                <p style="margin-top: 20px; font-size: 0.9rem;">Comprehensive home maintenance and large-scale assembly projects.</p>
+            <div class="price-card">
+                <h3>Full Day</h3>
+                <div class="amount">£580</div>
+                <p>8 Hours of Master Service</p>
             </div>
         </div>
     </section>
 
     <section id="booking">
-        <div class="booking-card">
-            <div class="booking-info">
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Secure Your Appointment</h2>
-                <p style="color: #cbd5e1; margin-bottom: 30px;">Tell us about your project. Our master handymen are ready to restore your home's perfection.</p>
-                <ul style="list-style: none; padding: 0; color: var(--emerald-light);">
-                    <li style="margin-bottom: 15px;">✓ Fully Insured & Vetted</li>
-                    <li style="margin-bottom: 15px;">✓ Arrive within 30-min window</li>
-                    <li style="margin-bottom: 15px;">✓ 12-Month Guarantee on Work</li>
-                </ul>
+        <div class="booking-container">
+            <div class="booking-visual">
+                <h2 style="font-size: 2.5rem;">Join the Elite.</h2>
+                <p style="font-size: 1.1rem; opacity: 0.9;">From bespoke carpentry to high-end maintenance, our team is ready to restore your sanctuary.</p>
+                <div style="margin-top: 30px;">
+                    <p>✓ 12-Month Guarantee</p>
+                    <p>✓ Fully Insured & Vetted</p>
+                    <p>✓ Transparent Prestige Pricing</p>
+                </div>
             </div>
             <div class="booking-form">
-                <label style="font-weight: 600; font-size: 0.9rem;">SELECT SERVICE</label>
-                <div class="service-pill-box">
-                    <div class="pill active">Handyman</div>
-                    <div class="pill">Plumbing</div>
-                    <div class="pill">Electrical</div>
-                    <div class="pill">Carpentry</div>
-                    <div class="pill">Hanging/TV</div>
-                </div>
+                <h3 style="margin-top: 0;">Request a Booking</h3>
                 <form>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="text" placeholder="Postcode" required>
-                    <select>
-                        <option>Preferred Arrival: Morning (8-12)</option>
-                        <option>Preferred Arrival: Afternoon (12-4)</option>
-                        <option>ASAP / Emergency</option>
-                    </select>
-                    <textarea rows="4" placeholder="Describe the job... (e.g. Fixing a bespoke kitchen cabinet)"></textarea>
-                    <button type="submit" class="btn-submit">Confirm Booking Request</button>
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Postcode" required>
+                    </div>
+                    <div class="form-group">
+                        <select>
+                            <option>General Handyman</option>
+                            <option>Plumbing / Leak Repair</option>
+                            <option>Carpentry / Assembly</option>
+                            <option>Electrical / Lighting</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" placeholder="Describe your job..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Request</button>
                 </form>
             </div>
         </div>
     </section>
 
     <section id="team" class="team">
-        <h2>Meet the Team</h2>
+        <h2>Meet the Master Handymen</h2>
         <div class="team-grid">
-            <div class="member">
+            <div class="team-card">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200" alt="Team">
-                <h3>Julian</h3>
-                <p style="color: var(--gold);">Senior Master Tradesman</p>
+                <h3>Arthur</h3>
+                <p style="color: var(--gold);">Senior Master Carpenter</p>
             </div>
-            <div class="member">
+            <div class="team-card">
                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200" alt="Team">
-                <h3>Marcus</h3>
-                <p style="color: var(--gold);">Plumbing & Heating Expert</p>
+                <h3>Julian</h3>
+                <p style="color: var(--gold);">Specialist Electrician</p>
             </div>
-            <div class="member">
+            <div class="team-card">
                 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200" alt="Team">
                 <h3>Leo</h3>
-                <p style="color: var(--gold);">Carpentry & Finishing</p>
+                <p style="color: var(--gold);">Plumbing & Maintenance</p>
             </div>
         </div>
     </section>
 
-    <footer style="padding: 40px; text-align: center; border-top: 1px solid var(--glass);">
-        <p style="color: #64748b; font-size: 0.8rem;">&copy; 2026 Emerald Joined Ltd. | Licensed, Bonded, and Insured. | Stay Polished, Stay Wild.</p>
+    <footer>
+        <p>EMERALD JOINED &copy; 2026 | London’s Prestige Repair Agency | Stay Polished, Stay Wild.</p>
     </footer>
 
 </body>
